@@ -31,3 +31,39 @@ This project is a simple bank application written in Go. It allows users to crea
     ```sh
     docker-compose up --build
     ```
+
+2. From postman or Curl hit the URLS
+- Create a new account
+    ```sh
+    POST /accounts/create
+    Content-Type: application/json
+
+    {
+      "name": "John Doe",
+      "initial_deposit": 1000
+    }
+    ```
+- Deposit money into an account
+    ```sh
+    POST /transactions/deposit
+    Content-Type: application/json
+
+    {
+      "account_id": 1,
+      "amount": 500
+    }
+    ```
+- Withdraw money from an account
+    ```sh
+    POST /transactions/withdraw
+    Content-Type: application/json
+
+    {
+      "account_id": 1,
+      "amount": 200
+    }
+    ```
+- Check account balance
+    ```sh
+    GET /transactions/balance?id=3
+    ```
